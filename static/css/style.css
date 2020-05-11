@@ -1,0 +1,155 @@
+
+*{
+  margin:0;
+  padding:0;
+
+}
+body{
+  background-color: #D9D9D9;
+}
+
+#intro{
+  color:white;
+  font-size: 18px;
+  margin-top:20px;
+  text-align: center;
+  background-color: inherit;
+
+}
+
+form{
+  border: 3px solid black;
+  background-color: #ADD8E6;
+  border-radius: 25px;
+
+}
+
+#topBanner{
+  background-color: #0E6CAD;
+  height:100px;
+}
+
+h1{
+  font-size: 48px;
+  position: relative;
+  top: 10px;
+  text-decoration: underline;
+  text-align: center;
+  color: white;
+  background-color: inherit;
+}
+
+/* select{
+    font-size: 14px;
+}
+select#fixed {
+   -webkit-appearance: none;
+} */
+
+label{
+  display: block;
+
+}
+
+#ml_form{
+  padding-top: 20px;
+  display: table;
+  text-align: center;
+  margin: 0 auto;
+
+}
+
+.team{
+  display:table-cell;
+  width:300px;
+  margin: 0 auto;
+  padding: 10px
+}
+
+ .year_select{
+  position: relative;
+  margin-top: 4px;
+  width: auto;
+}
+
+.team_select{
+  width:150px;
+  margin-top: 5px;
+}
+
+#selecting{
+  display:table-row;
+
+}
+
+#selector{
+  postion:absolute;
+  left:80px;
+  top:100px;
+
+}
+
+#hometeam{
+  visibility: hidden;
+}
+
+#awayteam{
+  visibility: hidden;
+
+}
+
+#modelSubmit{
+  postion: relative;
+  width:125px;
+  margin: 10 auto;
+
+}
+
+#resultHeader{
+  text-decoration: underline;
+}
+
+#result{
+  text-align: center;
+  color: black;
+  font-size: 18px;
+  margin-top: 15px;
+  margin 0 auto;
+  background-color: #ADD8E6;
+  border: solid black;
+  border-radius: 25px;
+  line-height: 40px;
+}
+
+#submitButtonBox{
+  postion:fixed;
+  width:125px;
+  margin: 0 auto;
+}
+
+#submitButton{
+  postiion:relative;
+  margin-top: 20px;
+  width:100px;
+  font-size: 16px;
+
+}
+
+#about_the_project{
+  text-align:center;
+  position:relative;
+  margin-top: 100px;
+  padding-left: 35px;
+  padding-right:35px;
+}
+
+
+#AUDL_logo{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  opacity: 50%;
+  width:50%;
+
+}
