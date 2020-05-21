@@ -14,7 +14,6 @@
   <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script> -->
-  <script src = "{{url_for('static',filename='JS/build_stats.js')}}"> </script>
 
 </head>
 
@@ -107,14 +106,32 @@
 
    <p id="stathome">{{home_stat}}</p>
    <p id="stataway">{{away_stat}}</p>
-
+<!-- dynamically builds stats table -->
    <table id="statBox">
-     <tr id="cols"></tr>
-
+     <tr id="cols">
+       <th>Team</th>
+       <th class="tooltip">G<span class="tooltiptext">Games</span></th>
+       <th class="tooltip">W<span class="tooltiptext">Wins</span></th>
+       <th class="tooltip">L<span class="tooltiptext">Losses</span></th>
+       <th class="tooltip">T<span class="tooltiptext">Ties</span></th>
+       <th class="tooltip">PTS<span class="tooltiptext">Points</span></th>
+       <th class="tooltip">PPG<span class="tooltiptext">Points Per Game</span></th>
+       <th class="tooltip">PA<span class="tooltiptext">Points Against</span></th>
+       <th class="tooltip">PAPG<span class="tooltiptext">Points Against Per Game</span></th>
+       <th class="tooltip">OEFF<span class="tooltiptext">Offensive Efficiency</span></th>
+       <th class="tooltip">DEFF<span class="tooltiptext">Defensive Efficiency</span></th>
+       <th class="tooltip">+/-<span class="tooltiptext">Plus Minus</span></th>
+       <th class="tooltip">+/- PG<span class="tooltiptext">Plus Minus Per Game</span></th>
+       <th class="tooltip">BLK<span class="tooltiptext">Blocks</span></th>
+       <th class="tooltip">BPG<span class="tooltiptext">Blocks Per Game</span></th>
+       <th class="tooltip">CMP<span class="tooltiptext">Completions</span></th>
+       <th class="tooltip">CPG<span class="tooltiptext">Completions Per Game</span></th>
+       <th class="tooltip">CMP%<span class="tooltiptext">Completion Rate</span></th>
+       <th class="tooltip">TO<span class="tooltiptext">Turnovers</span></th>
+       <th class="tooltip">TPG<span class="tooltiptext">Turnovers Per Game</span></th>
+      </tr>
      <tr id="homestat" class="teamstat"></tr>
-
      <tr id="awaystat" class="teamstat"></tr>
-
    </table>
 
 
@@ -125,4 +142,6 @@
      </div>
 
   </body>
+  <script src = "{{url_for('static',filename='JS/build_stats.js')}}"> </script>
+
 </html>
