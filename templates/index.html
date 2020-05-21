@@ -10,14 +10,18 @@
   <script src = "{{url_for('static',filename='JS/teamsHtmls.js')}}"> </script>
   <script src = "{{url_for('static',filename='JS/select.js')}}"> </script>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
+  <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script> -->
+  <script src = "{{url_for('static',filename='JS/build_stats.js')}}"> </script>
 
 </head>
 
 <body>
   <div id = "topBanner" >
   <h1>AUDL Game Predictor</h1>
-  <p id="intro"> this is some text about the project </p>
+  <p id="intro"> An Implementation of Machine Learning Algorithms to Predict Hypothetical AUDL Games</p>
 
   </div>
 
@@ -26,8 +30,9 @@
       <form action="{{ url_for('predict')}}" method="post">
 
         <div id="selecting" >
+
         <!-- Home Team -->
-        <div id = "home_team" class="team">
+        <div  class="team" id="home_team">
         <label for = "homeYear"> Home Team:</label>
         <select name = "homeYear" id = "year_select_home" class="year_select" required>
         <option value="" selected disabled hidden>
@@ -52,9 +57,10 @@
           </select>
           </div>
 
+      <img id = "AUDL_logo_form" src = "{{ url_for('static', filename='images/AUDL_logo.jpeg')}}" >
 
       <!-- Away team -->
-      <div id="away_team" class="team">
+      <div class="team" id="away_team">
       <label for="awayYear"> Away team:</label>
       <select name = "awayYear" id="year_select_away" class="year_select"  required>
           <option value="" selected disabled hidden>
@@ -84,6 +90,7 @@
           <option value="" selected disabled hidden>Select ML Model:</option>
           <option value = "lr">Linear Regression</option>
           <option value="clf">NN Classifier</option>
+          <option value="rfe">RFE</option>
 
       <input id="submitButton" type = "submit">
         </div>
@@ -98,7 +105,17 @@
         </div>
    </div>
 
-   <img id = "AUDL_logo" src = "{{ url_for('static', filename='images/AUDL_logo.jpeg')}}" >
+   <p id="stathome">{{home_stat}}</p>
+   <p id="stataway">{{away_stat}}</p>
+
+   <table id="statBox">
+     <tr id="cols"></tr>
+
+     <tr id="homestat" class="teamstat"></tr>
+
+     <tr id="awaystat" class="teamstat"></tr>
+
+   </table>
 
 
    <div id = "about_the_project" >
