@@ -83,11 +83,14 @@ label{
 #home_team{
   position: relative;
   float:left;
+  margin-left: 20px;
 }
 
 #away_team{
   position: relative;
   float:right;
+  margin-right: 20px;
+
 }
  .year_select{
   position: relative;
@@ -103,11 +106,17 @@ label{
 #hometeam{
   visibility: hidden;
   float:left;
+  position: absolute;
+  width:150;
+  margin-left: -75px;
 }
 
 #awayteam{
   visibility: hidden;
   float:right;
+  position: absolute;
+  width:150;
+  margin-left: -75px;
 }
 #modelSubmit{
   padding-bottom: 10px;
@@ -246,4 +255,9 @@ td{
   opacity: 50%;
   width:50%;
 
+}
+
+footer{
+  position: absolute;
+  bottom:0px;
 }
