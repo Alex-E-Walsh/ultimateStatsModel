@@ -1,13 +1,15 @@
 import numpy as np
 import pandas as pd
 from flask import Flask, request, jsonify, render_template
-import pickle
-from tensorflow.keras.models import load_model
+import dill
+
 
 app = Flask(__name__)
-lr_model = pickle.load(open('models/AUDL_linear_model.pkl','rb'))
-clf_model = load_model('models/ANN_classifier_82.h5')
-rfe_model = load_model('models/audl_rfe.h5')
+clf_model = dill.load(open('models/ANN_clf.pkl','rb'))
+lr_model = dill.load(open('models/audl_lr.pkl','rb'))
+rfe_model = dill.load(open('models/audl_rfe.pkl','rb'))
+
+
 fts = pd.read_csv('models/AUDL_team_stats.csv')
 fts.set_index('team',inplace=True)
 
