@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 clf_model = tf.keras.models.load_model('models/h5_models(AUDL)/ANN_classifier_82.h5')
 rfe_model =  tf.keras.models.load_model('models/h5_models(AUDL)/audl_rfe.h5')
-lr_model = pickle.load(open('models/h5_models(AUDL)/AUDL_linear_model.pkl','rb'))
+# lr_model = pickle.load(open('models/h5_models(AUDL)/AUDL_linear_model.pkl','rb'))
 
 fts = pd.read_csv('models/AUDL_team_stats.csv')
 fts.set_index('team',inplace=True)
