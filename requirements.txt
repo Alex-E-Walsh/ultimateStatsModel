@@ -7,3 +7,4 @@ tensorflow==2.0.0
 Keras==2.1.5
 pickleshare==0.7.5
 scikit-learn==0.22.2.post1
+joblib==0.15.1

@@ -4,13 +4,15 @@ from flask import Flask, request, jsonify, render_template
 import pickle
 import tensorflow as tf
 from tensorflow import keras
+import joblib
 
 
 app = Flask(__name__)
 
 clf_model = tf.keras.models.load_model('models/h5_models(AUDL)/ANN_classifier_82.h5')
 rfe_model =  tf.keras.models.load_model('models/h5_models(AUDL)/audl_rfe.h5')
-lr_model = tf.keras.models.load_model('models/h5_models(AUDL)/NN_linearRegression.h5')
+lr_model = tf.keras.models.load_model('models/h5_models(AUDL)/final_NN_linearRegression.h5')
+sclr = joblib.load('models/h5_models(AUDL)/lr_sclr.pkl')
 
 fts = pd.read_csv('models/AUDL_team_stats.csv')
 fts.set_index('team',inplace=True)
@@ -41,7 +43,9 @@ def predict():
     raway = pd.Series(fts.loc[away]).array
 
     if model == "lr":
+        game_stat = sclr.transform(game_stat)
         pred = float(lr_model.predict(game_stat)[0])
+
         intScore = int(pred)
 
         if pred < 0:
@@ -78,7 +82,7 @@ def predict():
         else:
             outcome_str = str(round(pred*100,3)) + "%  chance "+features[1]+' \''+features[0]+'(H) wins'
 
-    return render_template('index.html',prediction_text=(outcome_str),matchup = matchup, home_stat=rhome,away_stat=raway)
+    return render_template('index.html',prediction_text=(outcome_str),matchup = matchup, home_stat=rhome,away_stat=raway,feats=game_stat)
 
 @app.route('/results',methods=['POST'])
 def results():
