@@ -2,12 +2,16 @@ import numpy as np
 import pandas as pd
 from flask import Flask, request, jsonify, render_template
 import dill
+import tensorflow as tf
+from tensorflow import keras
 
 
 app = Flask(__name__)
-clf_model = dill.load(open('models/ANN_clf.pkl','rb'))
-lr_model = dill.load(open('models/audl_lr.pkl','rb'))
-rfe_model = dill.load(open('models/audl_rfe.pkl','rb'))
+# clf_model = dill.load(open('models/ANN_clf.pkl','rb'))
+# lr_model = dill.load(open('models/audl_lr.pkl','rb'))
+# rfe_model = dill.load(open('models/audl_rfe.pkl','rb'))
+
+clf_model = tf.keras.models.load_model('models/h5_models(AUDL)/ANN_classifier_82.h5')
 
 
 fts = pd.read_csv('models/AUDL_team_stats.csv')
