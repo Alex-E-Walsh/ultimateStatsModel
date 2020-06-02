@@ -45,7 +45,7 @@ def predict():
         intScore = int(pred)
 
         if pred < 0:
-            outcome_str = features[3]+' \''+featues[2] +' (A) wins by a margin of '+str(abs(intScore)) +' goals'
+            outcome_str = features[3]+' \''+features[2] +' (A) wins by a margin of '+str(abs(intScore)) +' goals'
         else:
             outcome_str = features[1]+' \''+features[0]+' (H) wins by a margin of '+str(intScore) +' goals'
         if intScore == 0:
