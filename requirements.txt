@@ -5,4 +5,4 @@ Flask==1.1.2
 gunicorn==20.0.4
 tensorflow==2.0.0
 Keras==2.1.5
-pickle==2.0
+pickle
